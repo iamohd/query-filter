@@ -12,7 +12,7 @@ Laravel query filter is a simple package that allows you to filter Eloquent resu
 You can install the package via composer:
 
 ```bash
-composer require smartisan/laravel-query-filter
+composer require smartisan/query-filter
 ```
 
 You can publish the config file with:
