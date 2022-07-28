@@ -1,0 +1,10 @@
+<?php
+
+namespace DummyNamespace;
+
+use Smartisan\QueryFilter\QueryFilter;
+
+class DummyClass extends QueryFilter
+{
+
+}
