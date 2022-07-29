@@ -1,5 +1,5 @@
 {
-    "name": "smartisan/query-filter",
+    "name": "smartisan/laravel-query-filter",
     "description": "Filter Eloquent via query URL",
     "keywords": [
         "smartisan",
