@@ -1,8 +1,8 @@
 # Filter Eloquent results via query URL
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/smartisan/query-filter.svg?style=flat-square)](https://packagist.org/packages/smartisan/query-filter)
-[![GitHub Tests Action Status](https://github.com/iamohd/query-filter/workflows/run-tests/badge.svg)](https://github.com/iamohd/query-filter/actions?query=workflow%3Arun-tests)
-[![Total Downloads](https://img.shields.io/packagist/dt/smartisan/query-filter.svg?style=flat-square)](https://packagist.org/packages/smartisan/query-filter)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/smartisan/laravel-query-filter.svg?style=flat-square)](https://packagist.org/packages/smartisan/laravel-query-filter)
+[![GitHub Tests Action Status](https://github.com/iamohd/laravel-query-filter/workflows/run-tests/badge.svg)](https://github.com/iamohd/laravel-query-filter/actions?query=workflow%3Arun-tests)
+[![Total Downloads](https://img.shields.io/packagist/dt/smartisan/laravel-query-filter.svg?style=flat-square)](https://packagist.org/packages/smartisan/laravel-query-filter)
 
 
 Laravel query filter is a simple package that allows you to filter Eloquent results via URL query params.
@@ -12,7 +12,7 @@ Laravel query filter is a simple package that allows you to filter Eloquent resu
 You can install the package via composer:
 
 ```bash
-composer require smartisan/query-filter
+composer require smartisan/laravel-query-filter
 ```
 
 You can publish the config file with:
