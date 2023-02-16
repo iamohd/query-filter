@@ -10,43 +10,33 @@ abstract class QueryFilter
 {
     /**
      * HTTP request object.
-     *
-     * @var \Illuminate\Http\Request
      */
     protected Request $request;
 
     /**
      * Eloquent builder instance.
-     *
-     * @var \Illuminate\Database\Eloquent\Builder
      */
     protected Builder $builder;
 
     /**
-     * Create a new QueryFilter instance.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return void
+     * Create a new query filter instance.
      */
-    public function __construct(Request $request)
+    public function __construct(Builder $builder, Request $request)
     {
+        $this->builder = $builder;
         $this->request = $request;
     }
 
     /**
-     * Apply the filters to the builder.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $builder
-     * @return \Illuminate\Database\Eloquent\Builder
+     * Apply applicable eloquent query builder filters.
      */
-    public function apply(Builder $builder): Builder
+    public function apply(): Builder
     {
-        $this->builder = $builder;
-
         foreach ($this->filters() as $name => $value) {
             $name = Str::camel($name);
 
-            if (! method_exists($this, $name)) {
+            if (! method_exists($this, $name) ||
+                in_array($name, ['apply', 'filters'])) {
                 continue;
             }
 
@@ -58,8 +48,6 @@ abstract class QueryFilter
 
     /**
      * Get all request filters data.
-     *
-     * @return array
      */
     public function filters(): array
     {

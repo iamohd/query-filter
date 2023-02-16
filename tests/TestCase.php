@@ -4,6 +4,7 @@ namespace Smartisan\QueryFilter\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
+use Smartisan\QueryFilter\QueryFilterServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -26,16 +27,23 @@ class TestCase extends Orchestra
         ]);
     }
 
+    protected function getPackageProviders($app)
+    {
+        return [
+            QueryFilterServiceProvider::class,
+        ];
+    }
+
     protected function loadMigrations()
     {
-        include_once __DIR__ . '/Migrations/2021_03_17_000000_create_users_table.php';
+        include_once __DIR__.'/Migrations/2021_03_17_000000_create_users_table.php';
         (new \CreateUsersTable())->up();
     }
 
     protected function loadFactories()
     {
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Smartisan\\QueryFilter\\Tests\\Factories\\' . class_basename($modelName) . 'Factory'
+            fn (string $modelName) => 'Smartisan\\QueryFilter\\Tests\\Factories\\'.class_basename($modelName).'Factory'
         );
     }
 }

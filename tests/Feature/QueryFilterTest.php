@@ -19,7 +19,7 @@ class QueryFilterTest extends TestCase
 
         $request = Request::create('/users', 'GET', ['name' => 'Adeel']);
 
-        $users = User::filter(new UserFilter($request))->get();
+        $users = User::filter(UserFilter::class, $request)->get();
 
         $this->assertCount(1, $users);
         $this->assertEquals('Adeel Monroe', $users->first()->name);
@@ -35,7 +35,7 @@ class QueryFilterTest extends TestCase
 
         $request = Request::create('/users', 'GET', ['full_name' => 'Adeel']);
 
-        $users = User::filter(new UserFilter($request))->get();
+        $users = User::filter(UserFilter::class, $request)->get();
 
         $this->assertCount(1, $users);
         $this->assertEquals('Adeel Monroe', $users->first()->name);

@@ -26,17 +26,7 @@ php artisan vendor:publish --provider="Smartisan\QueryFilter\QueryFilterServiceP
 php artisan make:filter UserFilter
 ```
 
-2. Prepare your model with filter trait
-```php
-use Smartisan\QueryFilter\HasFilters;
-
-class User extends Model
-{
-    use HasFilters;
-}
-```
-
-3. Add a new filter method with your logic to the generated filter class
+2. Add a new filter method with your logic to the generated filter class
 ```php
 namespace App\Filters;
 
@@ -51,16 +41,10 @@ class UserFilter extends QueryFilter
 }
 ```
 
-4. To trigger the filter method, do the following in your controller
+3. To trigger the filter method, do the following in your controller
 ```php
-public function index(UserFilter $filter)
-{
-    User::filter($filter)->get();
-}
-```
+use App\Filters\UserFilter;
 
-or you can pass the filter class name as string as following:
-```php
 public function index()
 {
     User::filter(UserFilter::class)->get();
